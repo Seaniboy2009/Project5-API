@@ -19,7 +19,10 @@ class ProfileDetail(APIView):
     '''
     Get one profile by primary key and return
     '''
+    
+    # change the serializer class to be a form for input
     serializer_class = ProfileSerializer
+
     def get_profile(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
