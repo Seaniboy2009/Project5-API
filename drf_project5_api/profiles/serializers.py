@@ -13,3 +13,4 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'created_at', 'image'
         ]
+
