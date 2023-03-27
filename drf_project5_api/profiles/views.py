@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 from .models import Profile
 from .serializers import ProfileSerializer
 from django.http import Http404
@@ -18,6 +19,7 @@ class ProfileDetail(APIView):
     '''
     Get one profile by primary key and return
     '''
+    serializer_class = ProfileSerializer
     def get_profile(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
@@ -29,3 +31,11 @@ class ProfileDetail(APIView):
         profile = self.get_profile(pk)
         serializer = ProfileSerializer(profile)
         return Response(serializer.data)
+    
+    def put(self, request, pk):
+        profile = self.get_profile(pk)
+        serializer = ProfileSerializer(profile, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
