@@ -12,7 +12,7 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=150, blank=True)
     image = models.ImageField(
-        upload_to='Project 5 API/',
+        upload_to='images/',
         default='../media/images/default_profile_o21i6o_h3tqjf',
     )
 
@@ -20,7 +20,7 @@ class Profile(models.Model):
         ordering = ['-created_at']
     
     def __str__(self):
-        return f"Profile belongs to {self.owner}"
+        return f"{self.owner}'s profile"
 
 def create_profile(sender, instance, created, **kwargs):
     if created:
