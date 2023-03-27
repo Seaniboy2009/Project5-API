@@ -13,3 +13,20 @@ class PostList(APIView):
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+
+
+class PostDetail(APIView):
+    '''
+    Get one post by primary key and return
+    '''
+    def get_post(self, pk):
+        try:
+            post = Post.objects.get(pk=pk)
+            return post
+        except Post.DoesNotExist:
+            raise Http404
+    
+    def get(self, request, pk):
+        post = self.get_post(pk)
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
