@@ -27,7 +27,7 @@ class Post(models.Model):
         ordering = ['-created_at']
     
     def __str__(self):
-        return f"{self.owner}'s post"
+        return f"Post:{self.id},Owner:{self.owner}, Post:{self.id}"
 
 
 
