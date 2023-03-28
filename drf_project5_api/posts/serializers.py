@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Post
 from like.models import Like
+from vote.models import VoteAlike, VoteNotAlike
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -12,6 +13,8 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     like_id = serializers.SerializerMethodField()
+    alike_id = serializers.SerializerMethodField()
+    not_alike_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -42,13 +45,31 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
+    
+    def get_alike_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            alike = VoteAlike.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return alike.id if alike else None
+        return None
+    
+    def get_not_alike_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            not_alike = VoteNotAlike.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return not_alike.id if not_alike else None
+        return None
 
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'title', 'profile_id', 'like_id',
             'profile_image', 'advert_image', 'reality_image','location', 
-            'franchisor', 'created_at', 'updated_at',
+            'alike_id', 'not_alike_id', 'franchisor', 'created_at', 'updated_at',
             'content', 
         ]
 
