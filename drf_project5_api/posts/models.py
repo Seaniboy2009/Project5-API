@@ -8,6 +8,7 @@ class Post(models.Model):
     '''
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
     advert_image = models.ImageField(
         upload_to='images/',
         default='../media/images/default_post_keitpn',
