@@ -6,7 +6,7 @@ from .serializers import ProfileSerializer
 from django.http import Http404
 from drf_project5_api.permissions import IsOwnerOrReadOnly
 
-class ProfileList(generics.ListAPIView()):
+class ProfileList(generics.ListAPIView):
     '''
     Get all profiles and list them
     '''

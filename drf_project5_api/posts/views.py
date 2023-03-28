@@ -1,7 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, generics
+from rest_framework import status, generics, permissions
 from .models import Post
+from drf_project5_api.permissions import IsOwnerOrReadOnly
 from .serializers import PostSerializer
 from django.http import Http404
 
@@ -19,7 +20,7 @@ class PostList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class PostDetail(APIView):
+class PostDetail(generics.RetrieveUpdateAPIView):
     '''
     Get one post by primary key and return
     '''

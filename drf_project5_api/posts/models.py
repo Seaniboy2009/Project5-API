@@ -20,7 +20,7 @@ class Post(models.Model):
     location = models.CharField(max_length=255, blank=True)
     franchisor = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=255, blank=True)
 
     class Meta:
