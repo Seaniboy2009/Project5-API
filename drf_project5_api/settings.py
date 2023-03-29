@@ -22,7 +22,7 @@ CLOUDINARY_STORAGE = {
 }
 
 ALLOWED_HOSTS = [
-    'https://project5-api.herokuapp.com/',
+    'https://project-5-api.herokuapp.com/',
     'localhost',
 ]
 
