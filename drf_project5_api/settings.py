@@ -22,8 +22,9 @@ CLOUDINARY_STORAGE = {
 }
 
 ALLOWED_HOSTS = [
-    'https://project-5-api.herokuapp.com/',
+    'project-5-api.herokuapp.com',
     'localhost',
+    '*'
 ]
 
 MEDIA_URL = '/media/'
