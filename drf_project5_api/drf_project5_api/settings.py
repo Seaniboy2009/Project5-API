@@ -22,7 +22,7 @@ CLOUDINARY_STORAGE = {
 }
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
+    'https://project5-api.herokuapp.com/',
     'localhost',
 ]
 
