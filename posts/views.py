@@ -4,7 +4,6 @@ from drf_project5_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import PostSerializer
 from django.db.models import Count
-from rest_framework import status, generics, filters
 
 
 class PostList(generics.ListCreateAPIView):
