@@ -26,7 +26,7 @@ class VoteNotAlike(models.Model):
     '''
     Vote like class
     this class is for a user to confirm they think the advert and 
-    given product are alike
+    given product are not alike
     '''
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, related_name='notalike', on_delete=models.CASCADE)
