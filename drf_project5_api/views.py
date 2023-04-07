@@ -9,8 +9,9 @@ from .settings import (
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Project 5 loading root url"
+        "message": "Welcome to my drf API!"
     })
+
 
 # dj-rest-auth logout view fix
 @api_view(['POST'])
