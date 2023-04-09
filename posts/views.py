@@ -61,3 +61,28 @@ class PostDetail(generics.RetrieveUpdateAPIView):
         alikes_count=Count('alike', distinct=True),
         not_alikes_count=Count('notalike', distinct=True),
     ).order_by('-created_at')
+
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'likes__owner__profile',
+        'owner__profile',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
+        'location',
+        'franchisor',
+    ]
+    ordering_fields = [
+        'likes_count',
+        'comments_count',
+        'likes__created_at',
+        'alikes_count',
+        'not_alikes_count',
+    ]
