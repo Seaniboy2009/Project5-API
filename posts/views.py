@@ -49,7 +49,7 @@ class PostList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class PostDetail(generics.RetrieveUpdateAPIView):
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     '''
     Get one post by primary key and return
     '''
