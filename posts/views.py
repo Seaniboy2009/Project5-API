@@ -55,4 +55,9 @@ class PostDetail(generics.RetrieveUpdateAPIView):
     '''
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True),
+        alikes_count=Count('alike', distinct=True),
+        not_alikes_count=Count('notalike', distinct=True),
+    ).order_by('-created_at')
