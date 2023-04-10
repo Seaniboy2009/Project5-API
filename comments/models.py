@@ -7,8 +7,8 @@ class Comment(models.Model):
     Comment will link with the user wo created and the post
     that was commented on
     '''
-    owner = models.OneToOneField(User, on_delete=models.CASCADE)
-    post = models.OneToOneField(Post, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField()
