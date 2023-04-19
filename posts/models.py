@@ -6,9 +6,9 @@ class Post(models.Model):
     '''
     Post will have the comparison images as well as the vote buttons
     '''
-
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    category = models.CharField(max_length=255, default='Other')
     advert_image = models.ImageField(
         upload_to='images/',
         default='../media/images/default_post_keitpn',
@@ -22,6 +22,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=255, blank=True)
+    
 
     class Meta:
         ordering = ['-created_at']
