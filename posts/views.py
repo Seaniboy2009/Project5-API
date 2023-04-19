@@ -36,6 +36,7 @@ class PostList(generics.ListCreateAPIView):
         'title',
         'location',
         'franchisor',
+        'category',
     ]
     ordering_fields = [
         'likes_count',
@@ -43,6 +44,7 @@ class PostList(generics.ListCreateAPIView):
         'likes__created_at',
         'alikes_count',
         'not_alikes_count',
+        'category',
     ]
 
     def perform_create(self, serializer):
@@ -78,6 +80,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         'title',
         'location',
         'franchisor',
+        'category',
     ]
     ordering_fields = [
         'likes_count',
@@ -85,4 +88,5 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         'likes__created_at',
         'alikes_count',
         'not_alikes_count',
+        'category',
     ]
