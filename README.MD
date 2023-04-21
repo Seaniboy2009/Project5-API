@@ -1,6 +1,7 @@
 ## Project 5 API 
 ## 1. Purpose of the project: 
-- the purpose of the project is to create a endpoint for a social voting website
+- The purpose of the project is to create a endpoint for a social voting website
+- Users will interact at the front end and when they need to create/update/delete or get it will come from this API
 
 ## 2. User stories:
 - as a user i want to create/update/delete a post
@@ -29,13 +30,20 @@
 - profiles
     - user can have a name and profile image
 
+- Modles
+
+![Header](https://res.cloudinary.com/dgj9rjuka/image/upload/v1682068641/modles_smxt5k.png)
+
+- Wireframe / interactions
+
+![Header](https://res.cloudinary.com/dgj9rjuka/image/upload/v1682068641/Screenshot_2023-04-21_101712_xyoich.png)
+
 ## 4. Future features
 - there can be more improvemtns on the code so this would be a good start
 - more apps can be added as the site becomes more, such as most liked of the day
 
-## 5. Typography and color scheme
 
-## 7. Technology
+## 5. Technology
 - Frameworks
     - Django is the main framework [Django](https://www.djangoproject.com/)
     - Django-Rest is the main framework [Django-rest](https://www.django-rest-framework.org/)
@@ -45,7 +53,7 @@
 - Database
     - elephantsql for the database [elephantsql](https://customer.elephantsql.com/)
 
-## 8. testing
+## 6. testing
 - Agile 
     - basic functions setup, then more complexion added, like auth
     - more functions that can be updated/created by users 
@@ -55,9 +63,6 @@
     - HTML validation [HTML](https://validator.w3.org/)
     - Python validation using [Python](https://pythontutor.com/python-debugger.html#mode=edit)
     - Spellchecker [Online Spellchecker](https://www.online-spellcheck.com/)
-
-- automation testing
-    - 
 
 
 - test cases (user story based)
@@ -87,7 +92,7 @@
     - Edge
     - Chrome mobile / samsung
 
-## 9. Deployment
+## 7. Deployment
    - Heroku
     - Deployment from heroku >> create app > setup enviroment vairables > deploy project > link to github repository
    
@@ -98,6 +103,6 @@
    - git push
    - to run the server from gitpod type python3 manage.py runserver
 
-## 10. Credits
+## 8. Credits
 
 - This project took many ideas and code layout as i needed the same functonaltiy from the django rest famework mini project
